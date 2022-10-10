@@ -11,7 +11,10 @@
 # possible steps?
 
 # !/usr/bin/env python3
+from importlib.resources import path
+from os import stat
 import sys
+import heapq 
 from queue import PriorityQueue
 
 N=5
@@ -62,14 +65,19 @@ def h(state):
 # This is a generic solver using BFS. 
 #
 def solve(initial_state):
-    fringe =  PriorityQueue()
-    fringe.put((0, initial_state, []))
+    # fringe =  PriorityQueue()
+    fringe = []
+    # fringe.put((0, initial_state, []))
+    heapq.heappush(fringe,(0,initial_state,[]))
     while fringe:
-        (heuristic, state, path) = fringe.get()
+        # (heuristic, state, path) = fringe.get()
+        (heuristic,state,path) = heapq.heappop(fringe)
         if is_goal(state):
             return path+[state,]
         for s in successors(state):
-            fringe.put((h(s), s, path+[state,]))
+            # fringe.put((h(s) + fringe.qsize(), s, path+[state,]))
+            ## Push the total cost into the heap! (f(x) = h(x) + g(x))
+            heapq.heappush(fringe,(h(s) + len(fringe),s,path+[state,]))
             #print(fringe)
 
     return []
