@@ -87,7 +87,6 @@ def solve(initial_state):
 # Please don't modify anything below this line
 #
 if __name__ == "__main__":
-    t = time.time()
     if(len(sys.argv) != 2):
         raise(Exception("Error: expected a test case filename"))
 
@@ -97,7 +96,6 @@ if __name__ == "__main__":
             test_cases.append([ int(i) for i in line.split() ])
     for initial_state in test_cases:
         print('From state ' + str(initial_state) + " found goal state by taking path: " + str(solve(initial_state)))
-    print(time.time() - t)
 
 
     
