@@ -138,5 +138,5 @@ def test_puzzle_2022_case1():
 
 @pytest.mark.timeout(900)
 def test_puzzle_2022_case2():
-    mapX,path_length = load_map('test_board0.5.txt')
+    mapX,path_length = load_map('test_board1.txt')
     check_puzzle(mapX,path_length)

@@ -1,7 +1,7 @@
 #!/usr/local/bin/python3
 # solve_birds.py : Bird puzzle solver
 #
-# Code by: TANMAY GIRISH MAHINDRAKAR: TMAHIND, DHANUSH BHARATH RAJ: DBRAJ
+# Code by: TMAHIND, DBRAJ, VNAYAKAN
 #
 # Based on skeleton code by D. Crandall & B551 course staff, Fall 2022
 #
@@ -14,7 +14,6 @@
 from importlib.resources import path
 from os import stat
 import sys
-import heapq 
 from queue import PriorityQueue
 import time
 
