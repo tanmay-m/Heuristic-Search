@@ -169,7 +169,7 @@ def solve(initial_board):
             cost = count + h_ofN
             u_route = route + [n_step]
             hp.heappush(fringe,(cost,count+1,u_board,u_route))
-    return path
+    return []
 
 if __name__ == "__main__":
     if(len(sys.argv) != 2):
