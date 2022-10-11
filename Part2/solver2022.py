@@ -157,7 +157,6 @@ def solve(initial_board):
     initial_board=state
     
     fringe=[]
-    cost=99999
     fringe.append((0,0,initial_board,[]))
     hp.heapify(fringe)
     while fringe:
@@ -168,7 +167,6 @@ def solve(initial_board):
             u_board = transition_state[1] 
             n_step = transition_state[0]  
             h_ofN=manhattan_dist(u_board)
-            # print(h_ofN)
             cost = count + h_ofN
             u_route = route + [n_step]
             hp.heappush(fringe,(cost,count+1,u_board,u_route))
