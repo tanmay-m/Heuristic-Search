@@ -66,20 +66,20 @@ def h(state):
 # This is a generic solver using BFS. 
 #
 def solve(initial_state):
-    # fringe =  PriorityQueue()
-    fringe = []
-    # fringe.put((0, initial_state, []))
-    heapq.heappush(fringe,(0,initial_state,[]))
+    fringe =  PriorityQueue()
+    # fringe = []
+    fringe.put((0, initial_state, []))
+    # heapq.heappush(fringe,(0,initial_state,[]))
     while fringe:
-        # (heuristic, state, path) = fringe.get()
-        (heuristic,state,path) = heapq.heappop(fringe)
+        (heuristic, state, path) = fringe.get()
+        # (heuristic,state,path) = heapq.heappop(fringe)
         if is_goal(state):
             return path+[state,]
         for s in successors(state):
-            # fringe.put((h(s) + fringe.qsize(), s, path+[state,]))
+            fringe.put((h(s) + fringe.qsize()//4, s, path+[state,]))
             ## Push the total cost into the heap! (f(x) = h(x) + g(x))
             ## As we get 4 new states from each state, we divide by 4 to get the cost in range 
-            heapq.heappush(fringe,(h(s) + len(fringe)//4,s,path+[state,]))
+            # heapq.heappush(fringe,(h(s) + len(fringe)//4,s,path+[state,]))
             #print(fringe)
 
     return []
