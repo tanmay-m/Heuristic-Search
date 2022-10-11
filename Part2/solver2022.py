@@ -68,9 +68,7 @@ def move_cclockwise(board):
 def successors(state):
     moves=[]
     for i in range(ROWS):
-        
         moves.append(['R'+str(i+1),move_right(copy.deepcopy(state), i)])
-        
         
     for i in range(ROWS):
         moves.append(['L'+str(i+1),move_left(copy.deepcopy(state), i)])
@@ -78,6 +76,7 @@ def successors(state):
     for i in range(COLS):
         moves.append(['U'+str(i+1),transpose_board(move_left(transpose_board(copy.deepcopy(state)), i))])
         moves.append(['D'+str(i+1),transpose_board(move_right(transpose_board(copy.deepcopy(state)), i))])
+    
     moves.append(['Oc',move_clockwise(copy.deepcopy(state))])
     
     moves.append(['Occ',move_cclockwise(copy.deepcopy(state))])
@@ -100,7 +99,7 @@ def successors(state):
     
     return moves
 
-#the heuristic function based on which we calculate h👎
+#tcalculate manhattan distance of each location in given board to its location in goal state and get the sum of those distances
 def manhattan_dist(state):
     m_dist = []
     goal_state_dictionary={1:[0,0],2:[0,1],3:[0,2],4:[0,3],5:[0,4],
