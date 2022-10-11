@@ -40,6 +40,10 @@ The Goal state can be expressed as a sorted matrix of N elements. To be specific
 
 ## Part 3
 
+## Challenges
+First We approached this problem using priority queue but the time it was executing was very large so used heapq.
+The heuristic i used before was not giving the right answer but after getting to learn about haversine distance from the internet heuristic helped me to solve this better.
+
 ### Theory and Challenges:
 In this problem, we have used the heap approach for storing the best possible steps. For the heuristic function, we have used Haversine distance formula which is referred from online resources. This Haversine function computes the distance between two geo locations. Each time we find neighbors from the initial location based on the latitude and longitude and calculate the best possible way to reach towards the destination location using Haversine distance.  
 
